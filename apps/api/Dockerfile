@@ -1,6 +1,7 @@
-FROM node:16
+FROM node:16-alpine
 WORKDIR /opt/app
-ADD . .
+ADD *.json ./
 RUN npm install
+ADD . .
 RUN npm run build api
 CMD ["node", "./dist/apps/api/main.js"]
